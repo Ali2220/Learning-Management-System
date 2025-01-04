@@ -1,13 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import Home from '../../Pages/Home';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSignup, setIsSignup] = useState(false); // isSignup true hoga to signup form dikhe ga, isSignup false hoga to login form dikhe ga.
   const [user, setUser] = useState(null);  // Login hone ke baad current user ka data store karta hai
-
+  const navigate = useNavigate()
   const [userData, setUserData] = useContext(AuthContext); // Existing users
   
   console.log(isSignup);
@@ -72,7 +74,8 @@ const Login = () => {
 
   // agr user true hai to home page pr redirect hojae ga.
   if (user) {
-    return <Home />;
+    navigate('/home'); // Directly navigate to the /home route
+    return null; // Avoid rendering anything after navigation
   }
 
   return (

@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
-import Home from '../../Pages/Home';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
